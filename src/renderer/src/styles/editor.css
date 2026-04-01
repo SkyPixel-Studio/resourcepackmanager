@@ -1,0 +1,133 @@
+/* CodeMirror Light theme */
+.cm-editor {
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-primary);
+}
+
+.cm-editor .cm-scroller {
+  overflow: auto;
+}
+
+.cm-editor .cm-content {
+  padding: 4px 0;
+  caret-color: #333;
+}
+
+.cm-editor .cm-cursor {
+  border-left-color: #333;
+}
+
+.cm-editor .cm-gutters {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+.cm-editor .cm-activeLineGutter {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.cm-editor .cm-activeLine {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.cm-editor .cm-selectionBackground,
+.cm-editor ::selection {
+  background: var(--bg-selected) !important;
+}
+
+.cm-editor .cm-matchingBracket {
+  background: rgba(74, 144, 217, 0.2);
+  color: var(--text-bright) !important;
+  outline: 1px solid rgba(74, 144, 217, 0.4);
+}
+
+.cm-editor .cm-searchMatch {
+  background: rgba(255, 200, 0, 0.3);
+  outline: 1px solid rgba(255, 200, 0, 0.5);
+}
+
+.cm-editor .cm-searchMatch.cm-searchMatch-selected {
+  background: rgba(255, 200, 0, 0.5);
+}
+
+/* Light syntax colors (IntelliJ Light inspired) */
+.tok-keyword { color: #0033b3; font-weight: 600; }
+.tok-operator { color: #333333; }
+.tok-number { color: #1750eb; }
+.tok-string { color: #067d17; }
+.tok-string2 { color: #067d17; }
+.tok-comment { color: #8c8c8c; font-style: italic; }
+.tok-propertyName { color: #871094; }
+.tok-variableName { color: #333333; }
+.tok-typeName { color: #0033b3; }
+.tok-bool { color: #0033b3; font-weight: 600; }
+.tok-null { color: #0033b3; font-weight: 600; }
+.tok-punctuation { color: #333333; }
+.tok-meta { color: #9e880d; }
+.tok-atom { color: #0033b3; }
+
+/* Properties file specific */
+.tok-prop-key { color: #871094; font-weight: 500; }
+.tok-prop-value { color: #067d17; }
+.tok-prop-comment { color: #8c8c8c; font-style: italic; }
+.tok-prop-equals { color: #0033b3; }
+.tok-prop-unicode { color: #1750eb; }
+.tok-prop-nbt { color: #9e880d; }
+
+/* CodeMirror tooltip / autocomplete */
+.cm-tooltip {
+  background: var(--bg-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cm-tooltip-autocomplete ul li {
+  color: var(--text-primary);
+  padding: 2px 8px;
+}
+
+.cm-tooltip-autocomplete ul li[aria-selected] {
+  background: var(--bg-selected);
+  color: var(--text-bright);
+}
+
+.cm-completionLabel {
+  font-family: var(--font-mono);
+}
+
+.cm-panels {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.cm-panels input {
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 2px 6px;
+  outline: none;
+}
+
+.cm-panels input:focus {
+  border-color: var(--border-focus);
+}
+
+.cm-panels button {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 8px;
+}
+
+.cm-panels button:hover {
+  background: var(--bg-hover);
+}

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#2d1f4e"/>
+      <stop offset="50%" stop-color="#1a1333"/>
+      <stop offset="100%" stop-color="#0f0c20"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#c0a0ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#6040aa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="quill" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#f8f0ff"/>
+      <stop offset="40%" stop-color="#e8d0ff"/>
+      <stop offset="100%" stop-color="#c090ee"/>
+    </linearGradient>
+    <linearGradient id="quillShaft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4b8f0"/>
+      <stop offset="100%" stop-color="#8860c0"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#6c5ce7"/>
+      <stop offset="100%" stop-color="#4834a0"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="100%" stop-color="#f0e4d4"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#e8b8ff"/>
+      <stop offset="50%" stop-color="#c88eff"/>
+      <stop offset="100%" stop-color="#9060d0"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#ffe8d8"/>
+      <stop offset="100%" stop-color="#ffd4be"/>
+    </linearGradient>
+    <radialGradient id="sparkle" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c8a0ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+    </filter>
+    <filter id="tinyGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="200" ry="200" fill="url(#bg)"/>
+
+  <!-- Soft ambient glow -->
+  <ellipse cx="420" cy="380" rx="300" ry="260" fill="url(#glow)" filter="url(#softGlow)"/>
+
+  <!-- Paper/scroll behind character -->
+  <g transform="translate(520, 300) rotate(8)">
+    <rect x="0" y="0" width="320" height="440" rx="12" fill="url(#paper)" opacity="0.85"/>
+    <!-- Text lines on paper -->
+    <rect x="30" y="50" width="200" height="4" rx="2" fill="#d4c4b4" opacity="0.6"/>
+    <rect x="30" y="75" width="260" height="4" rx="2" fill="#d4c4b4" opacity="0.5"/>
+    <rect x="30" y="100" width="180" height="4" rx="2" fill="#d4c4b4" opacity="0.6"/>
+    <rect x="30" y="125" width="240" height="4" rx="2" fill="#d4c4b4" opacity="0.4"/>
+    <rect x="30" y="150" width="160" height="4" rx="2" fill="#d4c4b4" opacity="0.5"/>
+    <rect x="30" y="175" width="220" height="4" rx="2" fill="#d4c4b4" opacity="0.4"/>
+    <rect x="30" y="200" width="190" height="4" rx="2" fill="#d4c4b4" opacity="0.3"/>
+    <!-- Ink spot -->
+    <circle cx="200" cy="360" r="18" fill="#6c5ce7" opacity="0.3"/>
+  </g>
+
+  <!-- Character body (anime girl, simplified) -->
+  <g transform="translate(200, 180)">
+    <!-- Hair back flowing -->
+    <ellipse cx="230" cy="200" rx="140" ry="180" fill="url(#hair)" opacity="0.7"/>
+    <path d="M120,260 Q80,400 130,550 Q160,480 180,420" fill="url(#hair)" opacity="0.5"/>
+    <path d="M340,260 Q380,420 330,550 Q300,470 280,400" fill="url(#hair)" opacity="0.5"/>
+
+    <!-- Body/outfit -->
+    <path d="M160,360 Q140,440 150,560 L310,560 Q320,440 300,360 Z" fill="#4a3580" opacity="0.9"/>
+    <path d="M150,560 Q130,620 140,680 L320,680 Q330,620 310,560 Z" fill="#3a2870"/>
+
+    <!-- Collar ribbon -->
+    <path d="M200,360 L230,400 L260,360" fill="#ff6b9d" stroke="#e0507a" stroke-width="2"/>
+    <circle cx="230" cy="370" r="8" fill="#ffe066"/>
+
+    <!-- Face -->
+    <ellipse cx="230" cy="220" rx="90" ry="100" fill="url(#skin)"/>
+
+    <!-- Hair front -->
+    <path d="M140,200 Q150,120 230,100 Q310,120 320,200 Q310,160 280,170 Q260,130 230,140 Q200,130 180,170 Q150,160 140,200 Z" fill="url(#hair)"/>
+    <!-- Bangs -->
+    <path d="M155,200 Q170,150 200,175 L190,210 Z" fill="#c88eff" opacity="0.7"/>
+    <path d="M220,140 Q240,120 260,145 L250,180 Q240,160 220,170 Z" fill="#c88eff" opacity="0.6"/>
+    <path d="M275,165 Q295,140 310,195 L300,210 Z" fill="#c88eff" opacity="0.7"/>
+
+    <!-- Eyes (big anime style) -->
+    <g transform="translate(185, 210)">
+      <ellipse cx="0" cy="0" rx="22" ry="26" fill="#fff"/>
+      <ellipse cx="2" cy="2" rx="16" ry="20" fill="#8855cc"/>
+      <ellipse cx="2" cy="2" rx="10" ry="13" fill="#5533aa"/>
+      <circle cx="-4" cy="-8" r="7" fill="#fff" opacity="0.9"/>
+      <circle cx="6" cy="-3" r="4" fill="#fff" opacity="0.5"/>
+    </g>
+    <g transform="translate(275, 210)">
+      <ellipse cx="0" cy="0" rx="22" ry="26" fill="#fff"/>
+      <ellipse cx="-2" cy="2" rx="16" ry="20" fill="#8855cc"/>
+      <ellipse cx="-2" cy="2" rx="10" ry="13" fill="#5533aa"/>
+      <circle cx="-6" cy="-8" r="7" fill="#fff" opacity="0.9"/>
+      <circle cx="4" cy="-3" r="4" fill="#fff" opacity="0.5"/>
+    </g>
+
+    <!-- Mouth -->
+    <path d="M218,265 Q230,275 242,265" fill="none" stroke="#d4888a" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Blush -->
+    <ellipse cx="178" cy="255" rx="18" ry="10" fill="#ff8888" opacity="0.25"/>
+    <ellipse cx="282" cy="255" rx="18" ry="10" fill="#ff8888" opacity="0.25"/>
+
+    <!-- Right arm holding quill -->
+    <path d="M310,380 Q350,360 380,320 Q400,290 410,260" fill="none" stroke="url(#skin)" stroke-width="28" stroke-linecap="round"/>
+
+    <!-- Hand -->
+    <circle cx="405" cy="268" r="18" fill="#ffd4be"/>
+  </g>
+
+  <!-- Quill pen (held by character) -->
+  <g transform="translate(560, 320) rotate(-50)">
+    <!-- Feather vane - left -->
+    <path d="M0,0 Q-60,-30 -40,-150 Q-20,-100 0,-60 Z" fill="url(#quill)" opacity="0.9"/>
+    <!-- Feather vane - right -->
+    <path d="M0,0 Q50,-40 30,-150 Q15,-100 0,-60 Z" fill="url(#quill)" opacity="0.8"/>
+    <!-- Shaft -->
+    <rect x="-4" y="-20" width="8" height="260" rx="4" fill="url(#quillShaft)"/>
+    <!-- Nib -->
+    <path d="M-4,240 L0,280 L4,240 Z" fill="#6c5ce7"/>
+    <!-- Center line -->
+    <line x1="0" y1="-10" x2="0" y2="240" stroke="#b090d8" stroke-width="1.5" opacity="0.5"/>
+    <!-- Feather barbs -->
+    <line x1="-35" y1="-120" x2="0" y2="-50" stroke="#d4b8f0" stroke-width="1" opacity="0.4"/>
+    <line x1="-45" y1="-90" x2="0" y2="-30" stroke="#d4b8f0" stroke-width="1" opacity="0.4"/>
+    <line x1="25" y1="-120" x2="0" y2="-50" stroke="#d4b8f0" stroke-width="1" opacity="0.3"/>
+    <line x1="35" y1="-90" x2="0" y2="-30" stroke="#d4b8f0" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Ink drip from nib -->
+  <circle cx="610" cy="680" r="8" fill="url(#ink)" opacity="0.7"/>
+  <circle cx="620" cy="710" r="5" fill="url(#ink)" opacity="0.5"/>
+
+  <!-- Sparkle particles -->
+  <circle cx="680" cy="320" r="12" fill="url(#sparkle)"/>
+  <circle cx="750" cy="240" r="8" fill="url(#sparkle)"/>
+  <circle cx="600" cy="250" r="6" fill="url(#sparkle)"/>
+  <circle cx="720" cy="400" r="5" fill="url(#sparkle)"/>
+  <circle cx="840" cy="350" r="7" fill="url(#sparkle)"/>
+
+  <!-- Star twinkles -->
+  <g fill="#fff" opacity="0.7">
+    <path d="M160,120 L163,130 L173,133 L163,136 L160,146 L157,136 L147,133 L157,130 Z"/>
+    <path d="M820,180 L822,187 L829,189 L822,191 L820,198 L818,191 L811,189 L818,187 Z"/>
+    <path d="M900,500 L902,507 L909,509 L902,511 L900,518 L898,511 L891,509 L898,507 Z"/>
+    <path d="M130,700 L132,707 L139,709 L132,711 L130,718 L128,711 L121,709 L128,707 Z"/>
+  </g>
+</svg>

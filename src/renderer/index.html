@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Pack Manager</title>
+</head>
+<body>
+  <div id="app">
+    <div id="titlebar">
+      <div class="titlebar-drag"></div>
+      <div class="titlebar-menu">
+        <button class="menu-btn" id="btn-open">打开资源包</button>
+        <button class="menu-btn" id="btn-template">新建 CIT</button>
+        <button class="menu-btn" id="btn-save">保存</button>
+      </div>
+      <div class="titlebar-title" id="pack-title">Resource Pack Manager</div>
+      <div class="titlebar-spacer"></div>
+    </div>
+
+    <div id="main-content">
+      <div id="left-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-panel="tree">文件树</button>
+          <button class="panel-tab" data-panel="flat">资源视图</button>
+        </div>
+        <div class="panel-body">
+          <div id="panel-tree" class="panel-content active">
+            <div id="file-tree" class="tree-container"></div>
+          </div>
+          <div id="panel-flat" class="panel-content">
+            <div class="flat-toolbar">
+              <input type="text" id="flat-search" placeholder="搜索资源..." />
+              <div class="flat-tabs">
+                <button class="flat-tab active" data-type="all">全部</button>
+                <button class="flat-tab" data-type="cit_properties">CIT</button>
+                <button class="flat-tab" data-type="model">模型</button>
+                <button class="flat-tab" data-type="texture">贴图</button>
+                <button class="flat-tab" data-type="sound">声音</button>
+                <button class="flat-tab" data-type="other">其他</button>
+              </div>
+            </div>
+            <div id="flat-list" class="flat-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resize-handle-left" class="resize-handle"></div>
+
+      <div id="center-panel">
+        <div id="editor-tabs" class="editor-tabs"></div>
+        <div id="editor-container" class="editor-container">
+          <div id="welcome-screen" class="welcome-screen">
+            <h2>Resource Pack Manager</h2>
+            <p>Minecraft 1.12.2 资源包管理器</p>
+            <p class="hint">点击"打开资源包"或将资源包文件夹拖入窗口</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="resize-handle-right" class="resize-handle"></div>
+
+      <div id="right-panel">
+        <div class="panel-header">预览</div>
+        <div id="preview-container" class="preview-container">
+          <div id="image-preview" class="image-preview"></div>
+          <div id="file-info" class="file-info"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusbar">
+      <span id="status-path">就绪</span>
+      <span id="status-encoding">UTF-8</span>
+      <span id="status-cursor"></span>
+      <span id="status-pack-info"></span>
+    </div>
+  </div>
+
+  <div id="template-dialog" class="dialog-overlay" style="display:none">
+    <div class="dialog">
+      <div class="dialog-header">
+        <h3>新建 CIT Properties</h3>
+        <button class="dialog-close" id="template-close">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <div class="form-group">
+          <label>模板类型</label>
+          <select id="tpl-type">
+            <option value="cit_texture">纹理替换 (CIT Texture)</option>
+            <option value="cit_model">模型替换 (CIT Model)</option>
+            <option value="enchantment">附魔效果 (Enchantment)</option>
+            <option value="armor">盔甲替换 (Armor)</option>
+            <option value="elytra">鞘翅替换 (Elytra)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>物品 ID</label>
+          <input type="text" id="tpl-items" placeholder="paper" />
+        </div>
+        <div class="form-group" id="tpl-texture-group">
+          <label>贴图路径</label>
+          <input type="text" id="tpl-texture" placeholder="textures/items/food/rice" />
+        </div>
+        <div class="form-group" id="tpl-model-group" style="display:none">
+          <label>模型路径</label>
+          <input type="text" id="tpl-model" placeholder="mcpatcher/models/example" />
+        </div>
+        <div class="form-group" id="tpl-enchant-group" style="display:none">
+          <label>附魔类型</label>
+          <input type="text" id="tpl-enchantments" placeholder="sharpness" />
+          <label>附魔等级</label>
+          <input type="text" id="tpl-enchant-levels" placeholder="1-5" />
+        </div>
+        <div class="form-group" id="tpl-armor-group" style="display:none">
+          <label>盔甲材质</label>
+          <select id="tpl-armor-material">
+            <option value="diamond">钻石</option>
+            <option value="iron">铁</option>
+            <option value="gold">金</option>
+            <option value="leather">皮革</option>
+            <option value="chainmail">锁链</option>
+          </select>
+          <label>Layer 1 路径</label>
+          <input type="text" id="tpl-armor-l1" />
+          <label>Layer 2 路径</label>
+          <input type="text" id="tpl-armor-l2" />
+        </div>
+        <div class="form-group">
+          <label>NBT 匹配方式</label>
+          <select id="tpl-nbt-type">
+            <option value="">无</option>
+            <option value="name">display.Name (物品名称)</option>
+            <option value="lore">display.Lore (物品描述)</option>
+          </select>
+        </div>
+        <div class="form-group" id="tpl-nbt-value-group" style="display:none">
+          <label>匹配文本 (支持中文，自动转 Unicode)</label>
+          <input type="text" id="tpl-nbt-value" placeholder="输入要匹配的文本" />
+        </div>
+        <div class="form-group">
+          <label>权重 (可选)</label>
+          <input type="number" id="tpl-weight" value="0" min="0" />
+        </div>
+        <div class="form-group">
+          <label>文件名</label>
+          <input type="text" id="tpl-filename" placeholder="example.properties" />
+        </div>
+        <div class="form-group">
+          <label>预览</label>
+          <pre id="tpl-preview" class="template-preview"></pre>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="btn btn-secondary" id="tpl-cancel">取消</button>
+        <button class="btn btn-primary" id="tpl-create">创建</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="path-picker" class="dialog-overlay" style="display:none">
+    <div class="dialog dialog-sm">
+      <div class="dialog-header">
+        <h3>选择资源路径</h3>
+        <button class="dialog-close" id="path-picker-close">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <input type="text" id="path-picker-search" placeholder="输入搜索..." class="full-width" />
+        <div id="path-picker-list" class="path-picker-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="context-menu" class="context-menu" style="display:none"></div>
+
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
