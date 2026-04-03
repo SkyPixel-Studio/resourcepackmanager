@@ -8,7 +8,7 @@ import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirro
 import { json } from '@codemirror/lang-json'
 import { StreamLanguage } from '@codemirror/language'
 import { bracketMatching, foldGutter, indentOnInput, syntaxHighlighting, HighlightStyle } from '@codemirror/language'
-import { searchKeymap, highlightSelectionMatches } from '@codemirror/search'
+import { search, searchKeymap, highlightSelectionMatches, openSearchPanel } from '@codemirror/search'
 import { autocompletion } from '@codemirror/autocomplete'
 import { tags } from '@lezer/highlight'
 import { getEditorLanguage } from '../utils/resourceTypes'
@@ -452,6 +452,7 @@ export class EditorComponent {
           indentOnInput(),
           bracketMatching(),
           highlightSelectionMatches(),
+          search({ top: true }),
           autocompletion(),
           syntaxHighlighting(editorHighlight),
           getLanguageExtension(tab.language),
@@ -587,6 +588,12 @@ export class EditorComponent {
   getActiveContent(): string | null {
     if (!this.activeTab?.view) return null
     return this.activeTab.view.state.doc.toString()
+  }
+
+  openSearch(): void {
+    if (this.activeTab?.view) {
+      openSearchPanel(this.activeTab.view)
+    }
   }
 
   updateFileContent(path: string, content: string): void {

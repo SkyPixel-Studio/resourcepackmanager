@@ -166,6 +166,40 @@ html, body {
   flex-direction: column;
 }
 
+/* File Tree Search */
+.tree-search-wrap {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.tree-search-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  padding: 5px 8px;
+  font-size: 12px;
+  font-family: var(--font-ui);
+  outline: none;
+}
+
+.tree-search-input:focus {
+  border-color: var(--border-focus);
+}
+
+.tree-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.tree-search-highlight {
+  background: rgba(255, 200, 0, 0.35);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
 /* File Tree */
 .tree-container {
   flex: 1;
