@@ -11,9 +11,9 @@ function resolveIcon(): string {
   // In prod: __dirname = <app>/out/main, build is at <app>/build/
   const candidates = [
     resolve(__dirname, '../../build/icon.png'),
-    resolve(__dirname, '../../logo.png'),
+    resolve(__dirname, '../../icon.png'),
     resolve(app.getAppPath(), 'build/icon.png'),
-    resolve(app.getAppPath(), 'logo.png'),
+    resolve(app.getAppPath(), 'icon.png'),
   ]
   for (const p of candidates) {
     if (existsSync(p)) return p

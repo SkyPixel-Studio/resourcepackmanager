@@ -11,6 +11,7 @@ export class FileTreeComponent {
   private callbacks: FileTreeCallbacks
   private selectedPath: string | null = null
   private dragSrcPath: string | null = null
+  private expandedPaths: Set<string> = new Set()
 
   constructor(container: HTMLElement, callbacks: FileTreeCallbacks) {
     this.container = container
@@ -106,6 +107,13 @@ export class FileTreeComponent {
         this.renderNodes(childContainer, node.children, depth + 1)
         parent.appendChild(childContainer)
 
+        // Restore expanded state
+        if (this.expandedPaths.has(node.path)) {
+          childContainer.classList.add('expanded')
+          const toggle = item.querySelector('.tree-toggle')
+          if (toggle) toggle.classList.add('expanded')
+        }
+
         // Drop on child container too
         childContainer.addEventListener('dragover', (e) => {
           e.preventDefault()
@@ -135,6 +143,11 @@ export class FileTreeComponent {
           const isExpanded = childContainer.classList.toggle('expanded')
           if (toggle) {
             toggle.classList.toggle('expanded', isExpanded)
+          }
+          if (isExpanded) {
+            this.expandedPaths.add(node.path)
+          } else {
+            this.expandedPaths.delete(node.path)
           }
           this.selectItem(node.path)
         })
