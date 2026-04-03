@@ -2,7 +2,7 @@
 set -e
 
 echo "========================================="
-echo "  Resource Pack Manager - Build Script"
+echo "  Ray - Build Script"
 echo "========================================="
 echo ""
 

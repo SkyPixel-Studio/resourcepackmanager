@@ -1,7 +1,7 @@
 {
-  "name": "resource-pack-manager",
+  "name": "ray",
   "version": "1.0.0",
-  "description": "Minecraft 1.12.2 Resource Pack Manager",
+  "description": "Minecraft Resource Packs Manager",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
@@ -15,7 +15,7 @@
   },
   "build": {
     "appId": "com.earthskydev.resourcepackmanager",
-    "productName": "Resource Pack Manager",
+    "productName": "Ray",
     "directories": {
       "output": "dist"
     },

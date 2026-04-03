@@ -332,7 +332,7 @@ async function openPack(dirPath: string): Promise<void> {
   if (!packInfo) return
 
   document.getElementById('pack-title')!.textContent =
-    `Resource Pack Manager — ${packInfo.rootPath.split('/').pop()}`
+    `Ray — ${packInfo.rootPath.split('/').pop()}`
 
   statusBar.setPackRoot(packInfo.rootPath)
   statusBar.setPackInfo(packInfo.packFormat, packInfo.description)

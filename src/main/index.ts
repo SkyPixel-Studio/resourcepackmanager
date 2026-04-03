@@ -62,6 +62,11 @@ function createWindow(): void {
   }
 }
 
+app.setAboutPanelOptions({
+  applicationName: 'Ray',
+  copyright: 'Copyright © 2026 煎蛋, SkyPixel Dev'
+})
+
 app.whenReady().then(() => {
   protocol.handle('local-res', (request) => {
     const filePath = decodeURIComponent(request.url.replace('local-res://', ''))
