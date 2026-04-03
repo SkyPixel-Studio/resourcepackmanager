@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="icon.png" width="128" height="128" alt="Resource Pack Manager">
+  <img src="icon.png" width="128" height="128" alt="Ray">
 </p>
 
-<h1 align="center">Resource Pack Manager</h1>
+<h1 align="center">Ray</h1>
 
 <p align="center">
-  Minecraft 1.12.2 客户端资源包制作管理器
+  Minecraft 资源包制作管理器
 </p>
 
 ---
 
-一款专为 Minecraft 1.12.2 资源包制作者打造的桌面端管理工具，集文件管理、代码编辑、媒体预览、3D 模型查看于一体。
+一款专为 Minecraft 资源包制作者打造的桌面端管理工具，集文件管理、代码编辑、媒体预览、3D 模型查看于一体。
 
 ## 功能特性
 
